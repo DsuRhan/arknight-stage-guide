@@ -1,0 +1,253 @@
+/* ====== Reset dasar ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #0f172a;
+  color: #e0f2f1;
+  line-height: 1.5;
+  padding: 0px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #38bdf8;
+  text-shadow: 0 0 6px rgba(0,200,255,0.6);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ====== Navbar ====== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e293b;
+  padding: 8px 16px;
+  border-bottom: 1px solid #0d9488;
+}
+
+.navbar .nav-logo img {
+  height: 40px;
+  transition: transform 0.2s ease;
+}
+
+.navbar .nav-logo img:hover {
+  transform: scale(1.1);
+}
+
+/* ====== Stage List Scroll ====== */
+.stage-container {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 10px 0;
+  scrollbar-width: thin;
+}
+
+.stage-container::-webkit-scrollbar {
+  height: 8px;
+}
+.stage-container::-webkit-scrollbar-thumb {
+  background: #22d3ee;
+  border-radius: 4px;
+}
+.stage-container::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+/* ====== Stage Card ====== */
+.stage-card {
+  position: relative;
+  min-width: 300px;
+  max-width: 360px;
+  height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  color: #e0f2f1;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Background umum (fallback) */
+.stage-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://raw.githubusercontent.com/fexli/ArknightsResource/main/ui/stage_bg.jpg")
+              center/cover no-repeat;
+  filter: blur(6px) brightness(0.6);
+  z-index: 0;
+}
+
+/* Overlay gradient */
+.stage-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13,148,136,0.7), rgba(15,23,42,0.4) 60%, transparent);
+  z-index: 1;
+}
+
+/* Konten di atas background */
+.stage-card a,
+.stage-card p {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.stage-card a {
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: #38bdf8;
+  margin-bottom: 6px;
+  text-shadow: 0 0 6px rgba(0,200,255,0.6);
+}
+
+.stage-card p {
+  font-size: 1rem;
+  color: #a7f3d0;
+}
+
+/* Hover efek neon */
+.stage-card:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 8px 24px rgba(0,255,200,0.3);
+}
+
+/* ====== Variasi background berdasarkan stage ====== */
+.stage-bg-main::before {
+  background: url("https://raw.githubusercontent.com/fexli/ArknightsResource/main/ui/bg_main.jpg")
+              center/cover no-repeat;
+}
+.stage-bg-sub::before {
+  background: url("https://raw.githubusercontent.com/fexli/ArknightsResource/main/ui/bg_sub.jpg")
+              center/cover no-repeat;
+}
+.stage-bg-event::before {
+  background: url("https://raw.githubusercontent.com/fexli/ArknightsResource/main/ui/bg_event.jpg")
+              center/cover no-repeat;
+}
+
+/* ====== Detail Page ====== */
+.detail-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.detail-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-list li span {
+  font-size: 0.9em;
+  color: #b2dfdb;
+}
+
+/* Material drop image */
+.item-img {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  vertical-align: middle;
+  object-fit: contain;
+  border-radius: 4px;
+  border: 1px solid #4dd0e1;
+}
+
+/* Operator kecil di drop list */
+.ops-needed {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.operator-item {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 98px;
+  border-radius:0;
+  background: #1e293b;
+  border: 1px solid #4dd0e1;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Ringkasan operator */
+#operatorsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 6px;
+}
+
+#operatorsList h2 {
+  grid-column: 1 / -1; /* judul ambil seluruh baris */
+  margin-bottom: 10px;
+  color: #4dd0e1;
+  text-align: left;
+}
+
+.operator-summary {
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+  margin: 5px;
+}
+
+.operator-summary .operator-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto 4px auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.operator-summary .operator-img:hover {
+  transform: scale(1.5);
+  box-shadow: 0 0 12px rgba(0,255,200,0.6);
+}
+
+
+
+/* ====== Loader ====== */
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  background: rgba(0,0,0,0.8);
+  color: #38bdf8;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  z-index: 1000;
+  animation: pulse 1.2s infinite;
+}
+.loader.hidden {
+  display: none;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
