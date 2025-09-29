@@ -4,7 +4,10 @@ A simple **frontend web project** to display and explore Arknights stage data.
 Built as part of the **Month 2 Evaluation Project**.
 
 ## 🚀 Live Demo
-[arknight-stage-guide.vercel.app](https://arknight-stage-guide.vercel.app)
+[arknight-stage-guide.vercel.app](https://arknight-stage-guide.vercel.app)<br>
+[Powerpoint](https://1drv.ms/p/c/d97aeb92ebcb6614/EZaqpOYz_rBDu5eUtMo8D7cB9bDBnOWzoIXv3oyHiOB3LQ?e=ii1B0Y)<br>
+[Presentation Video]()
+
 
 ## 📂 Project Structure
 project-name/ <br>
