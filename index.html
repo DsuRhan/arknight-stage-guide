@@ -4,14 +4,34 @@
   <meta charset="UTF-8">
   <title>Arknights Stage Guide</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="shortcut icon" href="assets/img/Rhodes_Island.png" type="image/x-icon">
 </head>
 <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arknights Stage Guide</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- ====== Navbar ====== -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="/assets/img/Rhodes_Island.png" alt="Arknights Logo">
+    </a>
+    <a href="https://arknights.wiki.gg/" target="_blank" rel="noopener noreferrer" class="nav-logo">
+      <img src="/assets/img/Site-logo.png" alt="Arknights Wiki">
+    </a>
+  </nav>
+
   <header>
     <h1>Arknights Stage Guide</h1>
   </header>
-
+  <div id="loader" class="loader hidden">Loading data…</div>
   <main>
-    <div id="stage-list">Loading stages...</div>
+    <h1>Stage List</h1>
+    <ul id="stageList"></ul>
   </main>
 
   <!-- panggil main.js dengan defer -->

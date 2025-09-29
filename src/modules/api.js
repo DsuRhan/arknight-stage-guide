@@ -2,7 +2,7 @@
 
 // Toggle: ganti ke true kalau mau pakai file lokal
 const USE_LOCAL = {
-  stages: true,   // kalau true → ambil dari /assets/data/stages.json
+  stages: false,   // kalau true → ambil dari /assets/data/stages.json
   items: true,    // kalau true → ambil dari /assets/data/items.json
   operators: false, // tetap online, biar selalu update
 };
@@ -19,8 +19,8 @@ const BASE_ACESHIP = {
 
 // Path lokal (simpen file json di sini)
 const LOCAL_PATH = {
-  stages: "/src/data/stages.json",
-  items: "/src/data/items_table.json",
+  stages: "src/data/stages.json",
+  items: "src/data/item_table.json",
 };
 
 // Helper fetch dengan error handling
@@ -39,8 +39,10 @@ async function safeFetch(url) {
 
 // Drop rate (harus online, dinamis)
 export async function fetchMatrix() {
-  return await safeFetch(BASE_PENGUIN.matrix);
+  const data = await safeFetch(BASE_PENGUIN.matrix);
+  return data?.matrix || [];
 }
+
 
 // Stage list
 export async function fetchStages() {
@@ -52,11 +54,15 @@ export async function fetchStages() {
 export async function fetchItemTable() {
   const url = USE_LOCAL.items ? LOCAL_PATH.items : BASE_ACESHIP.itemsTable;
   const data = await safeFetch(url);
-  return data?.items || data || {};
+
+  // jika data.items ada → ambil data.items, jika tidak → ambil data langsung
+  const items = data.items || data;
+
+  return items; // items sudah keyed by itemId
 }
 
 // Operator data
 export async function fetchOperators() {
-  const url = USE_LOCAL.operators ? "/assets/data/operators.json" : BASE_ACESHIP.operator;
+  const url = USE_LOCAL.operators ? "/src/data/operators.json" : BASE_ACESHIP.operator;
   return await safeFetch(url);
 }
