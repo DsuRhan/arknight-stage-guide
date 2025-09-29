@@ -7,20 +7,20 @@ Built as part of the **Month 2 Evaluation Project**.
 [arknight-stage-guide.vercel.app](https://arknight-stage-guide.vercel.app)
 
 ## 📂 Project Structure
-project-name/
-├─ index.html
-├─ detail.html
-├─ assets/
-│ ├─ css/
-│ └─ img/
-├─ src/
-│ ├─ main.js
-│ ├─ modules/
-│ │ ├─ api.js
-│ │ ├─ ui.js
-│ │ ├─ storage.js
-│ │ └─ utils.js
-└─ README.md
+project-name/ <br>
+├─ index.html<br>
+├─ detail.html<br>
+├─ assets/<br>
+│ ├─ css/<br>
+│ └─ img/<br>
+├─ src/<br>
+│ ├─ main.js<br>
+│ ├─ modules/<br>
+│ │ ├─ api.js<br>
+│ │ ├─ ui.js<br>
+│ │ ├─ storage.js<br>
+│ │ └─ utils.js<br>
+└─ README.md<br>
 
 ## ✨ Features
 - Fetch stage data from [Penguin Stats API](https://penguin-stats.io).
